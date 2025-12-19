@@ -20,7 +20,7 @@
     <nav class="navbar">
         <div class="container nav-wrap">
             <a href="#" class="logo">
-                <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                <!-- 牛角图标已移除 -->
                 <span class="visually-hidden">pyTeachConnect</span>
                 <span class="logo-text">pyTeachConnect</span>
             </a>
@@ -31,7 +31,11 @@
                     <li><a href="#usage">使用步骤</a></li>
                     <li><a href="#contact">联系我们</a></li>
                 </ul>
-                <a href="https://github.com/pyteachconnect" target="_blank" class="github-btn">
+                <!-- 新增 Bilibili 链接，复用 github-btn 样式作为 bili-btn -->
+                <a href="https://space.bilibili.com/1904477159?spm_id_from=333.1007.0.0" target="_blank" class="github-btn bili-btn" aria-label="Bilibili">
+                    <i class="fab fa-bilibili" aria-hidden="true"></i> B站
+                </a>
+                <a href="https://github.com/pyteachconnect" target="_blank" class="github-btn" aria-label="GitHub">
                     <i class="fab fa-github" aria-hidden="true"></i> 源码
                 </a>
                 <button class="nav-toggle" aria-label="切换导航" aria-expanded="false">
@@ -131,6 +135,7 @@
             <p>© 2025 pyTeachConnect | 专注教师信息高效传递的Python工具</p>
             <div class="socials">
                 <a href="https://github.com/pyteachconnect" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://space.bilibili.com/1904477159?spm_id_from=333.1007.0.0" target="_blank" aria-label="Bilibili"><i class="fab fa-bilibili"></i></a>
             </div>
         </div>
     </footer>

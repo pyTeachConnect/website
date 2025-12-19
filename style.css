@@ -74,7 +74,7 @@ a { color: inherit; text-decoration: none; }
 .hero-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 2.2rem; align-items: center; }
 
 .hero-text h1 { font-size: 2.6rem; margin-bottom: 1rem; line-height: 1.05; }
-.hero-text h1 span { color: var(--accent); }
+.hero-text h1 span { color: var(--primary) !important; }
 
 .hero-text p { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.6rem; max-width: 520px; }
 
@@ -82,6 +82,7 @@ a { color: inherit; text-decoration: none; }
 .btn { display: inline-block; background: linear-gradient(90deg, var(--primary), #3aa3c1); color: #fff; padding: 0.72rem 1.6rem; border-radius: 10px; font-weight: 700; box-shadow: 0 6px 20px rgba(68,179,211,0.12); transition: transform 0.18s ease, box-shadow 0.18s; }
 .btn:hover { transform: translateY(-4px); }
 .btn-outline { background: transparent; color: var(--primary); border: 1px solid rgba(68,179,211,0.12); padding: 0.6rem 1.2rem; box-shadow: none; }
+.hero-ctas .btn:first-child { background: linear-gradient(90deg, var(--primary), #3aa3c1) !important; color: #fff !important; box-shadow: 0 6px 20px rgba(68,179,211,0.12) !important; }
 
 .badges { display: flex; gap: 0.6rem; margin-top: 0.6rem; }
 .badge { background: rgba(15,23,36,0.05); color: var(--muted); padding: 0.3rem 0.6rem; border-radius: 999px; font-size: 0.85rem; }
@@ -125,6 +126,13 @@ a { color: inherit; text-decoration: none; }
 /* 动画 */
 .fade-up { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .fade-up.in-view { opacity: 1; transform: translateY(0); }
+
+/* 强制覆盖：确保关键元素使用主题色，优先级较高以覆盖第三方样式或内联覆盖 */
+.hero-text h1 span { color: var(--primary) !important; }
+.hero-ctas .btn:first-child { background: linear-gradient(90deg, var(--primary), #3aa3c1) !important; color: #fff !important; box-shadow: 0 6px 20px rgba(68,179,211,0.12) !important; }
+
+/* 强制让 Font Awesome 的伪元素继承颜色（修复 ::before 显示不对的问题） */
+.fa::before, .fas::before, .fab::before, .far::before, .fal::before { color: inherit !important; }
 
 /* 响应式设计 */
 @media (max-width: 1024px) {
