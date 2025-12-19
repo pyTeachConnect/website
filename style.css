@@ -61,10 +61,10 @@ a { color: inherit; text-decoration: none; }
 .nav-right { display: flex; gap: 1rem; align-items: center; }
 .nav-links { list-style: none; display: flex; gap: 1rem; align-items: center; }
 .nav-links a { padding: 0.5rem 0.6rem; color: var(--muted); border-radius: 6px; font-weight: 500; }
-.nav-links a:hover, .nav-links a:focus { color: var(--dark); background: rgba(37,99,235,0.06); }
+.nav-links a:hover, .nav-links a:focus { color: var(--dark); background: rgba(68,179,211,0.06); }
 
 .github-btn { background: var(--primary); color: #fff; padding: 0.45rem 0.9rem; border-radius: 8px; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.18s ease, box-shadow 0.18s; }
-.github-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37,99,235,0.12); }
+.github-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(68,179,211,0.12); }
 
 .nav-toggle { display: none; background: transparent; border: none; cursor: pointer; padding: 0.4rem; border-radius: 8px; color: var(--muted); }
 .nav-toggle:focus { outline: 2px solid rgba(37,99,235,0.18); }
@@ -79,9 +79,9 @@ a { color: inherit; text-decoration: none; }
 .hero-text p { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.6rem; max-width: 520px; }
 
 .hero-ctas { display: flex; gap: 0.8rem; align-items: center; margin-bottom: 1rem; }
-.btn { display: inline-block; background: linear-gradient(90deg, var(--accent), #ff7a2d); color: #fff; padding: 0.72rem 1.6rem; border-radius: 10px; font-weight: 700; box-shadow: 0 6px 20px rgba(249,115,22,0.12); transition: transform 0.18s ease, box-shadow 0.18s; }
+.btn { display: inline-block; background: linear-gradient(90deg, var(--primary), #3aa3c1); color: #fff; padding: 0.72rem 1.6rem; border-radius: 10px; font-weight: 700; box-shadow: 0 6px 20px rgba(68,179,211,0.12); transition: transform 0.18s ease, box-shadow 0.18s; }
 .btn:hover { transform: translateY(-4px); }
-.btn-outline { background: transparent; color: var(--primary); border: 1px solid rgba(37,99,235,0.12); padding: 0.6rem 1.2rem; box-shadow: none; }
+.btn-outline { background: transparent; color: var(--primary); border: 1px solid rgba(68,179,211,0.12); padding: 0.6rem 1.2rem; box-shadow: none; }
 
 .badges { display: flex; gap: 0.6rem; margin-top: 0.6rem; }
 .badge { background: rgba(15,23,36,0.05); color: var(--muted); padding: 0.3rem 0.6rem; border-radius: 999px; font-size: 0.85rem; }
@@ -111,7 +111,7 @@ a { color: inherit; text-decoration: none; }
 .step-content code { background: #eef2ff; padding: 0.22rem 0.48rem; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 0.9rem; }
 
 /* 联系 CTA */
-.contact-cta { padding: 3.2rem 0; background: linear-gradient(180deg, rgba(37,99,235,0.05), transparent); border-top: 1px solid rgba(15,23,36,0.02); }
+.contact-cta { padding: 3.2rem 0; background: linear-gradient(180deg, rgba(68,179,211,0.05), transparent); border-top: 1px solid rgba(15,23,36,0.02); }
 .cta-wrap { text-align: center; padding: 2rem; border-radius: 12px; }
 .cta-wrap h2 { font-size: 1.4rem; margin-bottom: 0.6rem; }
 .cta-wrap p { color: var(--muted); margin-bottom: 1rem; }
