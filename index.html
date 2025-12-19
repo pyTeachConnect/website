@@ -6,6 +6,8 @@
     <title>pyTeachConnect - 教师信息高效传递工具</title>
     <!-- 引入字体图标 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入 Google 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- 引入CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,44 +15,75 @@
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="container nav-wrap">
-            <a href=" " class="logo">
-                <<i class="fas fa-bullhorn"></</i>
-                pyTeachConnect
-            </a >
-            <a href="https://github.com/pyteachconnect" target="_blank" class="github-btn">
-                <<i class="fab fa-github"></</i> 源码
-            </a >
+            <a href="#" class="logo">
+                <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                <span class="visually-hidden">pyTeachConnect</span>
+                <span class="logo-text">pyTeachConnect</span>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#hero">首页</a></li>
+                    <li><a href="#features">核心功能</a></li>
+                    <li><a href="#usage">使用步骤</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+                <a href="https://github.com/pyteachconnect" target="_blank" class="github-btn">
+                    <i class="fab fa-github" aria-hidden="true"></i> 源码
+                </a>
+                <button class="nav-toggle" aria-label="切换导航" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
     <!-- 核心介绍区 -->
-    <section class="hero">
+    <section id="hero" class="hero">
         <div class="container hero-wrap">
             <div class="hero-text">
                 <h1>教师信息，<span>一键传递</span></h1>
-                <p>pyTeachConnect 专为教学场景设计，实现教师通知、教学安排、学习要求的高效分发与触达</p >
-                <a href="https://github.com/pyteachconnect" target="_blank" class="btn">立即使用</a >
+                <p>pyTeachConnect 专为教学场景设计，实现教师通知、教学安排、学习要求的高效分发与触达</p>
+                <div class="hero-ctas">
+                    <a href="https://github.com/pyteachconnect" target="_blank" class="btn">立即使用</a>
+                    <a href="#features" class="btn btn-outline">查看功能</a>
+                </div>
+                <div class="badges">
+                    <span class="badge">开源 · 免费</span>
+                    <span class="badge">轻量 · 易集成</span>
+                </div>
             </div>
             <div class="hero-img">
-                < img src="https://picsum.photos/seed/teachinfo/500/300" alt="教师信息传递演示">
+                <img src="https://picsum.photos/seed/teachinfo/900/600" alt="教师信息传递演示" loading="lazy">
             </div>
         </div>
     </section>
 
     <!-- 核心功能区 -->
-    <section class="feature">
+    <section id="features" class="feature">
         <div class="container">
             <h2 class="section-title">核心功能</h2>
-            <div class="feature-card">
-                <<i class="fas fa-paper-plane"></</i>
-                <h3>高效传递教师信息</h3>
-                <p>支持文本、文件形式的教师信息快速分发，覆盖学生端多渠道触达，确保信息传递无遗漏</p >
+            <div class="feature-cards">
+                <article class="feature-card">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                    <h3>高效传递教师信息</h3>
+                    <p>支持文本、文件形式的教师信息快速分发，覆盖学生端多渠道触达，确保信息传递无遗漏。</p>
+                </article>
+                <article class="feature-card">
+                    <i class="fas fa-user-cog" aria-hidden="true"></i>
+                    <h3>可配置化工作流</h3>
+                    <p>通过简单配置即可设定接收对象、发送周期和优先级，满足不同教学场景需求。</p>
+                </article>
+                <article class="feature-card">
+                    <i class="fas fa-lock" aria-hidden="true"></i>
+                    <h3>隐私与安全</h3>
+                    <p>注重数据安全与权限控制，帮助学校和教师规范信息分发流程。</p>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- 使用步骤 -->
-    <section class="usage">
+    <section id="usage" class="usage">
         <div class="container">
             <h2 class="section-title">使用步骤</h2>
             <div class="steps-wrap">
@@ -58,32 +91,43 @@
                     <span class="step-num">1</span>
                     <div class="step-content">
                         <h3>克隆仓库</h3>
-                        <p>执行 <code>git clone https://github.com/pyteachconnect/仓库名.git</code> 获取工具源码</p >
+                        <p>执行 <code>git clone https://github.com/pyteachconnect/仓库名.git</code> 获取工具源码</p>
                     </div>
                 </div>
                 <div class="step-item">
                     <span class="step-num">2</span>
                     <div class="step-content">
                         <h3>配置信息</h3>
-                        <p>在配置文件中填写需传递的教师信息、接收对象等内容</p >
+                        <p>在配置文件中填写需传递的教师信息、接收对象等内容</p>
                     </div>
                 </div>
                 <div class="step-item">
                     <span class="step-num">3</span>
                     <div class="step-content">
                         <h3>一键分发</h3>
-                        <p>执行启动命令，完成教师信息的批量、高效传递</p >
+                        <p>执行启动命令，完成教师信息的批量、高效传递</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 联系/CTA -->
+    <section id="contact" class="contact-cta">
+        <div class="container cta-wrap">
+            <h2>开始使用 pyTeachConnect</h2>
+            <p>立即在本地试用或将其部署到内部服务器，快速提升教学信息的分发效率。</p>
+            <a href="https://github.com/pyteachconnect" target="_blank" class="btn">查看源码与文档</a>
+        </div>
+    </section>
+
     <!-- 页脚 -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 pyTeachConnect | 专注教师信息高效传递的Python工具</p >
-            <a href="https://github.com/pyteachconnect" target="_blank"><<i class="fab fa-github"></</i></a >
+    <footer id="footer" class="footer">
+        <div class="container footer-wrap">
+            <p>© 2025 pyTeachConnect | 专注教师信息高效传递的Python工具</p>
+            <div class="socials">
+                <a href="https://github.com/pyteachconnect" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
         </div>
     </footer>
 
