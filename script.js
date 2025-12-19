@@ -1,3 +1,16 @@
+// --------------- 修改：使用固定主题色（保留原交互逻辑） ---------------
+(function applyFixedTheme() {
+    const primaryHex = '#44b3d3';
+    const accentHex = getComputedStyle(document.documentElement).getPropertyValue('--accent') || '#f97316';
+    document.documentElement.style.setProperty('--primary', primaryHex);
+    // 保持现有 accent（如需改变可在此修改）
+    document.documentElement.style.setProperty('--accent', accentHex.trim());
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', primaryHex);
+})();
+
+// --------------- 下面为已有交互逻辑（保留并放置在同一文件中） ---------------
+
 // 平滑滚动并在移动端关闭菜单
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
