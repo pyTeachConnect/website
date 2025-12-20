@@ -127,12 +127,60 @@ a { color: inherit; text-decoration: none; }
 .fade-up { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .fade-up.in-view { opacity: 1; transform: translateY(0); }
 
+/* 动画关键帧 */
+@keyframes navFadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    0% { opacity: 0; transform: translateY(12px) scale(.98); }
+    60% { opacity: 1; transform: translateY(-6px) scale(1.02); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes floatUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ripple {
+    to { transform: scale(6); opacity: 0; }
+}
+
 /* 强制覆盖：确保关键元素使用主题色，优先级较高以覆盖第三方样式或内联覆盖 */
 .hero-text h1 span { color: var(--primary) !important; }
 .hero-ctas .btn:first-child { background: linear-gradient(90deg, var(--primary), #3aa3c1) !important; color: #fff !important; box-shadow: 0 6px 20px rgba(68,179,211,0.12) !important; }
 
 /* 强制让 Font Awesome 的伪元素继承颜色（修复 ::before 显示不对的问题） */
 .fa::before, .fas::before, .fab::before, .far::before, .fal::before { color: inherit !important; }
+
+/* 移动菜单入场：使用动画而非瞬间出现 */
+.nav-links {
+    /* ...existing properties... */
+}
+.nav-links.show {
+    display: flex; /* 已存在，但保持 */
+    animation: navFadeIn 260ms ease forwards;
+}
+
+/* 切换按钮旋转效果 */
+.nav-toggle.open i { transform: rotate(90deg); transition: transform 260ms ease; }
+
+/* 卡片及 hero-img 的入场动画（结合 .in-view） */
+.feature-card.in-view { animation: popIn 560ms cubic-bezier(.2,.9,.2,1) both; }
+.hero-img.in-view { animation: floatUp 700ms cubic-bezier(.2,.9,.2,1) both; }
+
+/* 按钮波纹效果准备 */
+.btn { position: relative; overflow: hidden; }
+.btn .ripple { position: absolute; width: 12px; height: 12px; background: rgba(255,255,255,0.38); border-radius: 50%; pointer-events: none; transform: scale(0); opacity: 1; animation: ripple 600ms ease-out; }
+
+/* 微交互增强 */
+.github-btn, .bili-btn { transition: transform 160ms cubic-bezier(.2,.9,.2,1), box-shadow 160ms; }
+.github-btn:active, .bili-btn:active { transform: translateY(1px) scale(.996); }
+
+/* 小细节：让 Font Awesome 图标过渡颜色更平滑 */
+.fa, .fas, .fab, .far, .fal { transition: color 180ms ease; }
 
 /* 响应式设计 */
 @media (max-width: 1024px) {
@@ -160,4 +208,36 @@ n    .hero-wrap { grid-template-columns: 1fr; text-align: center; }
     .hero-text h1 { font-size: 1.6rem; }
     .btn { padding: 0.6rem 1rem; }
     .step-item { flex-direction: column; gap: 0.6rem; }
+}
+
+/* 无动画偏好支持：当用户选择减少动画时，禁用大量 CSS 动画和过渡 */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        /* 可根据需要微调体验 */
+    }
+
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .nav-links.show {
+        animation: none !important;
+    }
+
+    .feature-card.in-view, .hero-img.in-view, .fade-up.in-view {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* 按钮波纹与伪元素隐藏/取消 */
+    .btn .ripple { display: none !important; }
+
+    /* 禁用导航切换旋转动画 */
+    .nav-toggle.open i { transform: none !important; transition: none !important; }
+
+    /* 减少阴影/浮动效果为静态样式 */
+    .feature-card:hover, .feature-card:focus-within { transform: none !important; box-shadow: 0 8px 18px rgba(8,15,30,0.06) !important; }
+    .btn:hover { transform: none !important; }
 }

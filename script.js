@@ -54,7 +54,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 移动导航切换与外部点击关闭
+// 移动导航切换与外部点击关闭（增强：切换 .open 用于图标旋转动画）
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 if (navToggle && navLinks) {
@@ -63,15 +63,32 @@ if (navToggle && navLinks) {
         const expanded = navToggle.getAttribute('aria-expanded') === 'true';
         navToggle.setAttribute('aria-expanded', String(!expanded));
         navLinks.classList.toggle('show');
+        navToggle.classList.toggle('open'); // 新增：控制旋转样式
     });
 
     document.addEventListener('click', (e) => {
         if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
             navLinks.classList.remove('show');
             navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.classList.remove('open');
         }
     });
 }
+
+// 按钮波纹效果（点击时生成并在动画结束后移除）
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        this.appendChild(ripple);
+        ripple.addEventListener('animationend', () => ripple.remove());
+    });
+});
 
 // 进入视口动画（IntersectionObserver）
 const io = new IntersectionObserver((entries, observer) => {
